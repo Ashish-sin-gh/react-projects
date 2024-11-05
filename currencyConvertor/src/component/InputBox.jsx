@@ -8,8 +8,9 @@ function InputBox({
   valueDropDown,
   onAmtChange,
   onCurChange,
-  currencyoptions = [],
+  currencyOptions = [],
 }) {
+  // console.log(currencyOptions);
   return (
     <>
       <label className="block px-2 pl-1 py-1 mb-1 mt-2">{labelText}</label>
@@ -18,19 +19,20 @@ function InputBox({
         type="number"
         placeholder={placeholder}
         readOnly={readOnly}
-        value={amount}
+        value={amount <= 0 ? "" : amount}
+        min={0}
         onChange={(e) => onAmtChange(Number(e.target.value))}
       />
       <select
-        className="inline text-black rounded-md pl-1 pr-2 mb-2 "
+        className="block text-black rounded-md pl-1 pr-2 mb-2 "
         value={valueDropDown}
         onChange={(e) => onCurChange(e.target.value)}
       >
-        {currencyoptions.map((currency) => {
+        {currencyOptions.map((currency) => (
           <option key={currency} value={currency}>
             {currency}
-          </option>;
-        })}
+          </option>
+        ))}
       </select>
     </>
   );
