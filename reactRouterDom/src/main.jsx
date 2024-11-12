@@ -7,6 +7,8 @@ import Layout from "./layout.jsx";
 import About from "./components/about/About.jsx";
 import MainSection from "./components/mainSection/mainSection.jsx";
 import Contactus from "./components/contactUs/Contactus.jsx";
+import User from "./components/User/User.jsx";
+import GitHub, { gitHubfetchedData } from "./components/gitHub/GitHub.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,15 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contactus />,
+      },
+      {
+        path: "user/:userId",
+        element: <User />,
+      },
+      {
+        path: "github",
+        element: <GitHub />,
+        loader: gitHubfetchedData,
       },
     ],
   },
