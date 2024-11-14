@@ -1,7 +1,12 @@
 import "./App.css";
+import TodoForm from "./componets/todoForm";
 
 function App() {
-  return <h1 className="bg-slate-300 p-4">hello love</h1>;
+  return (
+    <>
+      <TodoForm />
+    </>
+  );
 }
 
 export default App;
