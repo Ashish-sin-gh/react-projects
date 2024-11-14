@@ -24,20 +24,23 @@ const todosSlice = createSlice({
     },
 
     deleteTodo: (state, action) => {
-      const newList = state.filter((todo) => todo.id !== action.payload);
+      console.log(state);
+      const newList = state.todos.filter((todo) => todo.id !== action.payload);
       state.todos = newList;
     },
 
     updateTodo: (state, action) => {
       const { id, updatedTitle } = action.payload;
-      const selectedTodo = state.find((todo) => todo.id === id);
+      const selectedTodo = state.todos.find((todo) => todo.id === id);
       if (selectedTodo) {
         selectedTodo.title = updatedTitle;
       }
     },
 
-    ToggleTodo: (state, action) => {
-      const selectedTodo = state.find((todo) => todo.id === action.payload);
+    toggleTodo: (state, action) => {
+      const selectedTodo = state.todos.find(
+        (todo) => todo.id === action.payload
+      );
       if (selectedTodo) {
         selectedTodo.completed = !selectedTodo.completed;
       }
@@ -45,7 +48,7 @@ const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, deleteTodo, ToggleTodo, updateTodo } =
+export const { addTodo, deleteTodo, toggleTodo, updateTodo } =
   todosSlice.actions;
 
 export default todosSlice.reducer;

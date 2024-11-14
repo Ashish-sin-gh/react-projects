@@ -14,9 +14,9 @@ function TodoForm() {
   }
 
   return (
-    <form className="border p-2 rounded-lg  ">
+    <form className="border p-2 rounded-lg ">
       <input
-        className="border p-2 rounded-lg mr-2 text-black"
+        className="border p-2 rounded-lg mr-2 text-black w-[90%]"
         type="text"
         value={todoTitle}
         onChange={(e) => setTodoTitle(e.target.value)}
